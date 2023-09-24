@@ -7,7 +7,7 @@ Created on Mon Sep 11 14:48:13 2023
 ################# Before model building ######################################
 # Import data
 import pandas as pd
-df = pd.read_csv("~/PycharmProjects/data-mining-class/cereals.CSV")
+df = pd.read_csv("~/PycharmProjects/data-mining-ml/cereals.CSV")
 
 # Construct variables (Calories, protein, fat, sodium, fiber as predictors; Rating as a target)
 X = df.iloc[:,3:8] #iloc is specifically for slicing the dataframe
