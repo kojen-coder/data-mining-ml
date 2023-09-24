@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 
 # Load the data
-df = pd.read_csv("~/PycharmProjects/data-mining-class/UniversalBank.csv")
+df = pd.read_csv("~/PycharmProjects/data-mining-ml/UniversalBank.csv")
 
 # Dummify variables
 df = pd.get_dummies(df, columns = ['Education'], dtype=float)
