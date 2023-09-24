@@ -32,7 +32,7 @@ model.predict(new_obs)
 
 ## 2. Build KNN model using cancer.csv
 # Load data and construct variables
-df = pd.read_csv("~/PycharmProjects/data-mining-class/cancer.csv")
+df = pd.read_csv("~/PycharmProjects/data-mining-ml/cancer.csv")
 X = df.iloc[:,0:9]
 y = df['class']
 
