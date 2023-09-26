@@ -2,17 +2,16 @@
 """
 Created on Mon Sep 11 14:48:13 2023
 
-@author: ehan1
 """
 ################# Before model building ######################################
 # Import data
 import pandas as pd
 df = pd.read_csv("~/PycharmProjects/data-mining-ml/cereals.CSV")
-
+df.columns
 # Construct variables (Calories, protein, fat, sodium, fiber as predictors; Rating as a target)
 X = df.iloc[:,3:8] #iloc is specifically for slicing the dataframe
 y = df['Rating']
-
+X.columns
 
 ## Detecting multicollinearity
 # Create VIF dataframe
@@ -27,13 +26,13 @@ for i in range(len(X1.columns)):
     vif_data.loc[vif_data.index[i],"VIF"] = variance_inflation_factor(X1.values, i)
 
 print(vif_data)
-### if the VIP is > 5, then we will remove that variable. Since we do not have any VIP value that is over 5, we won't remove any variables. 5 is a standard threshold.
+### if the VIF is > 5, then we will remove that variable. Since we do not have any VIP value that is over 5, we won't remove any variables. 5 is a standard threshold.
 # Note: VIF is to calculate how each variable correlates to the remaining variables.
 
-## Standardize the predictors
+## Standardize the predictors - There are 2 processes: You can choose either a) or b)
 X.describe()
 
-## Split the dataset first -> Standardize separately
+## a) You can split the dataset first -> Then Standardize train & test data separately
 # from sklearn.model_selection import train_test_split
 # X_train, X_test, y_train, y_test = train_test_split(scaled_X, y, test_size = 0.33, random_state = 5)
 
@@ -44,14 +43,13 @@ X.describe()
 #
 # scaled_X_test = scaler.transform()
 
-## Or you can Standardize the whole dataset -> Split the dataset
+## b) Or you can Standardize the whole dataset -> Then Split the dataset
 from sklearn.preprocessing import StandardScaler
 scaler=StandardScaler()
 scaled_X = scaler.fit_transform(X) # consider the distribution of the dataset that will be used
 scaled_X = pd.DataFrame(scaled_X, columns=X.columns) # transform into a dataframe and add column names
 # Split the dataset into train and test -> and then standardize separately. Or you can Standardize them all together -> Split the dataset
-# Both did not make much difference in terms of the approach
-
+# Both a) and b) did not make much difference in terms of the approach from the statistics standpoint
 
 
 ################# Model building ######################################

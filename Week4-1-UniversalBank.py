@@ -2,7 +2,6 @@
 """
 Created on Fri Sep 15 14:18:29 2023
 
-@author: ehan1
 """
 ## Import data and construct variables
 import pandas as pd

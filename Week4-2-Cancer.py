@@ -2,7 +2,6 @@
 """
 Created on Mon Sep 18 12:30:39 2023
 
-@author: ehan1
 """
 
 ## 1. Illustrative example from the slides
